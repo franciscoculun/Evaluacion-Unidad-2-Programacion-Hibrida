@@ -1,0 +1,26 @@
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-card-title {
+  font-weight: bold;
+  color: black;
+}
+
+ion-item {
+  --padding-start: 10px;
+}
+
+.frase {
+  font-size: 15px;
+  color: #1e1e1e;
+  margin: 0;
+}
+
+.autor {
+  font-size: 13px;
+  color: #555;
+  text-align: right;
+  margin-top: 3px;
+  font-style: italic;
+}

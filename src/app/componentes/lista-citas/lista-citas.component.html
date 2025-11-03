@@ -1,0 +1,16 @@
+<!--
+Muestra todas las citas guardadas con su frase y autor.
+Incluye un botón para eliminar cada cita individual.
+-->
+
+<ion-list>
+  <ion-item *ngFor="let cita of citas">
+    <ion-label class="cita-label">
+      <p class="frase">"{{ cita.frase }}"</p>
+      <p class="autor">— {{ cita.autor }}</p>
+    </ion-label>
+    <ion-button color="medium" fill="clear" slot="end" (click)="eliminarCita(cita.id!)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-list>

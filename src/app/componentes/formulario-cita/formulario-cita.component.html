@@ -1,0 +1,71 @@
+<!--
+Formulario de ingreso de citas con validación.
+Emite onCitaAgregada al componente padre cuando el formulario es válido.
+-->
+
+
+<form #formCita="ngForm" (ngSubmit)="agregarCita(formCita)">
+  <ion-list lines="none">
+
+    <!-- Campo Frase -->
+    <ion-item>
+      <ion-input
+        label="Cita"
+        labelPlacement="stacked"
+        placeholder="Escribe la cita..."
+        name="frase"
+        [(ngModel)]="frase"
+        required
+        minlength="5"
+        #fraseCtrl="ngModel">
+      </ion-input>
+    </ion-item>
+
+    <!-- Mensajes de validacion para Frase -->
+    <ion-text color="danger" *ngIf="fraseCtrl.invalid && (fraseCtrl.dirty || fraseCtrl.touched)">
+      <ng-container *ngIf="fraseCtrl.errors?.['required']">
+        La frase es obligatoria.
+      </ng-container>
+      <ng-container *ngIf="fraseCtrl.errors?.['minlength']">
+        La frase debe tener al menos 5 caracteres.
+      </ng-container>
+    </ion-text>
+
+    <!-- Campo Autor -->
+    <ion-item>
+      <ion-input
+        label="Autor"
+        labelPlacement="stacked"
+        placeholder="Mahatma Gandhi"
+        name="autor"
+        [(ngModel)]="autor"
+        required
+        minlength="2"
+        #autorCtrl="ngModel">
+      </ion-input>
+    </ion-item>
+
+    <!-- Mensajes de validacion para Autor -->
+    <ion-text color="danger" *ngIf="autorCtrl.invalid && (autorCtrl.dirty || autorCtrl.touched)">
+      <ng-container *ngIf="autorCtrl.errors?.['required']">
+        El autor es obligatorio.
+      </ng-container>
+      <ng-container *ngIf="autorCtrl.errors?.['minlength']">
+        El nombre del autor debe tener al menos 2 caracteres.
+      </ng-container>
+    </ion-text>
+
+    <!-- Botón agregar cita -->
+    <ion-item lines="none">
+      <ion-button
+        type="submit"
+        expand="block"
+        color="primary"
+        [disabled]="formCita.invalid">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        Agregar cita
+      </ion-button>
+    </ion-item>
+
+  </ion-list>
+</form>

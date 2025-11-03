@@ -1,0 +1,17 @@
+<!--
+Contenedor de gestión: muestra el formulario y la lista de citas.
+No altera el diseño: solo coordina eventos entre ambos componentes.
+-->
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Crea una nueva cita</ion-card-title>
+  </ion-card-header>
+
+  <app-formulario-cita (onCitaAgregada)="agregarCita($event)"></app-formulario-cita>
+</ion-card>
+
+<app-lista-citas
+  [citas]="citas"
+  (onEliminar)="eliminarCita($event)">
+</app-lista-citas>

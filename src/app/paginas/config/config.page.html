@@ -1,0 +1,24 @@
+<!--
+Página de configuración de la aplicación.
+Permite guardar la preferencia de eliminar citas desde el inicio.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Configuraciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>Permitir eliminar citas en el inicio</ion-label>
+    <ion-toggle
+      [(ngModel)]="permitirEliminarInicio"
+      (ionChange)="onToggleChange()"
+      color="primary">
+    </ion-toggle>
+  </ion-item>
+</ion-content>

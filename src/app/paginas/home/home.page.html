@@ -1,0 +1,40 @@
+<!--
+Página de inicio que muestra una cita aleatoria.
+Incluye botón de eliminación si está activado en configuración
+y acceso rápido a gestión y ajustes.
+-->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/config']">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="cita-container" *ngIf="cita">
+    <p class="frase">"{{ cita.frase }}"</p>
+    <p class="autor">{{ cita.autor }}</p>
+
+    <ion-button
+      *ngIf="permitirBorrarInicio && cita.id"
+      expand="block"
+      color="danger"
+      fill="outline"
+      (click)="eliminarCitaActual()">
+      Eliminar cita
+    </ion-button>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/gestion']" color="primary">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
